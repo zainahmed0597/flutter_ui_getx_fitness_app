@@ -4,7 +4,7 @@ import 'package:google_fonts/google_fonts.dart';
 import '../resource/AppText.dart';
 import '../resource/colors.dart';
 import '../resource/image_path.dart';
-import '../widgets/build_footer.dart';
+import '../widgets/body_footer.dart';
 import '../widgets/option_widget.dart';
 
 class AboutView extends StatelessWidget {
@@ -48,14 +48,14 @@ class AboutView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          kT7,
+                          tAboutYou,
                           style: GoogleFonts.nunitoSans(
                               textStyle:
                                   const TextStyle(fontSize: 40, color: kColorWhite, fontWeight: FontWeight.bold)),
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          kT8,
+                          tSubTitle2,
                           style: GoogleFonts.nunitoSans(
                             textStyle: const TextStyle(color: kColorWhite),
                           ),
@@ -69,15 +69,15 @@ class AboutView extends StatelessWidget {
                     builder: (value, updateFn) => Row(
                       children: [
                         OptionWidget(
-                          state: kT9,
-                          detail: kT10,
+                          state: kT3,
+                          detail: kT4,
                           enable: value == 0 ? true : false,
                           onTap: () => updateFn(0),
                         ),
                         const SizedBox(width: 20),
                         OptionWidget(
-                          state: kT11,
-                          detail: kT10,
+                          state: kT5,
+                          detail: kT4,
                           enable: value == 1 ? true : false,
                           onTap: () => updateFn(1),
                         ),

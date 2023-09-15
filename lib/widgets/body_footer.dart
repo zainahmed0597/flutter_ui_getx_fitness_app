@@ -19,7 +19,7 @@ class BuildFooter extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                kT21,
+                tBack,
                 style: GoogleFonts.roboto(
                   textStyle: const TextStyle(
                     color: Colors.grey,
@@ -42,7 +42,7 @@ class BuildFooter extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                kT22,
+                tNext,
                 style: GoogleFonts.roboto(
                   textStyle: const TextStyle(
                     color: Colors.white,

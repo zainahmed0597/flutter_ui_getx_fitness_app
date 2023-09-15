@@ -1,16 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_ui_getx_fitness_app/routes/app_pages.dart';
-import 'package:flutter_ui_getx_fitness_app/widgets/sub_title.dart';
-import 'package:flutter_ui_getx_fitness_app/widgets/body_header.dart';
+import 'package:flutter_ui_getx_fitness_app/resource/colors.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import '../resource/AppText.dart';
-import '../resource/colors.dart';
 import '../resource/image_path.dart';
+import '../widgets/sub_title.dart';
+import '../widgets/body_header.dart';
 import '../widgets/text_form_field.dart';
 
-class LoginView extends StatelessWidget {
-  const LoginView({super.key});
+class RegisterView extends StatelessWidget {
+  RegisterView({super.key});
+
+  final TextEditingController name = TextEditingController();
+  final TextEditingController email = TextEditingController();
+  final TextEditingController phone = TextEditingController();
+  final TextEditingController password = TextEditingController();
+  final TextEditingController confirmPassword = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +25,18 @@ class LoginView extends StatelessWidget {
             child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Stack(
             children: [
-              BodyHeader(bgImage: kImage4),
-              SubTitle(mainTitle: tSignIn, subTitle: tSubTitle1),
+              BodyHeader(bgImage: kImage8),
+              SubTitle(mainTitle: tSignUp, subTitle: tSubTitle1),
             ],
           ),
           Padding(
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 15),
               child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                formLogin(),
-                forgetButton(),
-                const SizedBox(height: 15),
+                formRegister(),
+                Text(tSubTitle3,
+                    style: GoogleFonts.nunitoSans(
+                        textStyle: const TextStyle(color: kColorWhite, fontSize: 12))),
+                const SizedBox(height: 20),
                 Center(
                     child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
                   TextButton(
@@ -37,18 +44,19 @@ class LoginView extends StatelessWidget {
                       child: Container(
                         height: 50,
                         width: Get.width * 0.7,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: kFirstColor),
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(25), color: kFirstColor),
                         child: Center(
                           child: Text(
-                            tLogin,
+                            tRegister,
                             style: GoogleFonts.roboto(
-                                textStyle:
-                                    const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
+                                textStyle: const TextStyle(
+                                    color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
                           ),
                         ),
                       )),
                   TextButton(
-                      onPressed: () => Get.toNamed(AppPages.register),
+                      onPressed: () {},
                       child: Container(
                           height: 50,
                           width: Get.width * 0.7,
@@ -58,42 +66,48 @@ class LoginView extends StatelessWidget {
                               color: Colors.transparent),
                           child: Center(
                               child: Text(
-                                tSignUp,
+                            tCancel,
                             style: GoogleFonts.roboto(
-                                textStyle:
-                                    const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
+                                textStyle: const TextStyle(
+                                    color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
                           ))))
                 ]))
               ]))
         ])));
   }
 
-  Align forgetButton() {
-    return Align(
-        alignment: Alignment.centerRight,
-        child: TextButton(
-            onPressed: () => Get.toNamed(AppPages.forgetPassword),
-            child: Text(tForgotYourPassword,
-                style: GoogleFonts.nunitoSans(
-                  textStyle: const TextStyle(color: Colors.white, fontSize: 14),
-                ))));
-  }
-
-  Column formLogin() {
+  Column formRegister() {
     return const Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+      // Name here
+      TextFieldWidget(
+        text: tName,
+        hintText: tFullName,
+      ),
+
+      // Email here
       TextFieldWidget(
         text: tEmail,
         hintText: tExampleEmail,
       ),
+
+      // Phone here
+      TextFieldWidget(
+        text: tPhone,
+        hintText: tExamplePhone,
+      ),
+
+      // Password here
       TextFieldWidget(
         text: tPassword,
         hintText: tExamplePassword,
         obscureText: true,
       ),
+
+      // Confirm Password here
+      TextFieldWidget(
+        text: tConfirmPassword,
+        hintText: tExampleConfirmPassword,
+      ),
     ]);
   }
-
-
-
-  
 }

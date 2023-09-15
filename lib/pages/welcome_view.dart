@@ -48,14 +48,14 @@ class WelcomeView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          kT3,
+                          tWelcome,
                           style: GoogleFonts.nunitoSans(
                               textStyle:
                                   const TextStyle(fontSize: 40, color: kColorWhite, fontWeight: FontWeight.bold)),
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          kT4,
+                          tSubTitle1,
                           style: GoogleFonts.nunitoSans(
                             textStyle: const TextStyle(color: kColorWhite),
                           ),
@@ -72,7 +72,7 @@ class WelcomeView extends StatelessWidget {
                         decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: kFirstColor),
                         child: Center(
                           child: Text(
-                            kT5,
+                            tTryNow,
                             style: GoogleFonts.roboto(
                                 textStyle:
                                     const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
@@ -90,7 +90,7 @@ class WelcomeView extends StatelessWidget {
                             color: Colors.transparent),
                         child: Center(
                           child: Text(
-                            kT6,
+                            tLogin,
                             style: GoogleFonts.roboto(
                                 textStyle:
                                     const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
