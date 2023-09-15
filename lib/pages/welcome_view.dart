@@ -1,14 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_ui_getx_fitness_app/routes/app_pages.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../resource/AppText.dart';
+import '../resource/colors.dart';
+import '../resource/image_path.dart';
 
-import '../../recources/AppText.dart';
-import '../../recources/colors.dart';
-import '../../recources/image_path.dart';
-
-class AboutView extends StatelessWidget {
-  const AboutView({super.key});
+class WelcomeView extends StatelessWidget {
+  const WelcomeView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +16,11 @@ class AboutView extends StatelessWidget {
       body: Stack(
         children: [
           Container(
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
-                image: AssetImage(kImage13),
+                image: AssetImage(kImage1),
                 fit: BoxFit.cover,
-              )
+              ),
             ),
           ),
           Container(
@@ -38,9 +37,9 @@ class AboutView extends StatelessWidget {
                           text: kT1,
                           style: GoogleFonts.bebasNeue(textStyle: const TextStyle(fontSize: 30, letterSpacing: 5)),
                           children: [
-                            TextSpan(
-                                text: kT2, style: GoogleFonts.bebasNeue(textStyle: const TextStyle(color: kFirstColor)))
-                          ])),
+                        TextSpan(
+                            text: kT2, style: GoogleFonts.bebasNeue(textStyle: const TextStyle(color: kFirstColor)))
+                      ])),
                   const Spacer(),
                   // About You text & other text
                   Align(
@@ -49,14 +48,14 @@ class AboutView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          kT7,
+                          kT3,
                           style: GoogleFonts.nunitoSans(
                               textStyle:
-                              const TextStyle(fontSize: 40, color: kColorWhite, fontWeight: FontWeight.bold)),
+                                  const TextStyle(fontSize: 40, color: kColorWhite, fontWeight: FontWeight.bold)),
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          kT8,
+                          kT4,
                           style: GoogleFonts.nunitoSans(
                             textStyle: const TextStyle(color: kColorWhite),
                           ),
@@ -66,7 +65,7 @@ class AboutView extends StatelessWidget {
                   ),
                   const SizedBox(height: 30),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(AppPages.about),
                       child: Container(
                         height: 50,
                         width: Get.width * 0.7,
@@ -76,25 +75,25 @@ class AboutView extends StatelessWidget {
                             kT5,
                             style: GoogleFonts.roboto(
                                 textStyle:
-                                const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
+                                    const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
                           ),
                         ),
                       )),
                   TextButton(
-                      onPressed: () {},
+                      onPressed: () => Get.toNamed(AppPages.login),
                       child: Container(
                         height: 50,
                         width: Get.width * 0.7,
                         decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(25),
-                            border: Border.all(width: 2, color: kColorWhite),
+                            border: Border.all(width: 2, color: kFirstColor),
                             color: Colors.transparent),
                         child: Center(
                           child: Text(
                             kT6,
                             style: GoogleFonts.roboto(
                                 textStyle:
-                                const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
+                                    const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
                           ),
                         ),
                       )),

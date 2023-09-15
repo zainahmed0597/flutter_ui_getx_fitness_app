@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import '../resource/AppText.dart';
+import '../resource/colors.dart';
+import '../resource/image_path.dart';
+import '../widgets/build_footer.dart';
+import '../widgets/option_widget.dart';
 
-import '../../recources/AppText.dart';
-import '../../recources/colors.dart';
-import '../../recources/image_path.dart';
-
-class WelcomeView extends StatelessWidget {
-  const WelcomeView({super.key});
+class AboutView extends StatelessWidget {
+  const AboutView({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -17,11 +18,10 @@ class WelcomeView extends StatelessWidget {
         children: [
           Container(
             decoration: const BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage(kImage1),
-                fit: BoxFit.cover,
-              ),
-            ),
+                image: DecorationImage(
+              image: AssetImage(kImage13),
+              fit: BoxFit.cover,
+            )),
           ),
           Container(
             height: Get.height,
@@ -48,14 +48,14 @@ class WelcomeView extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
-                          kT3,
+                          kT7,
                           style: GoogleFonts.nunitoSans(
                               textStyle:
                                   const TextStyle(fontSize: 40, color: kColorWhite, fontWeight: FontWeight.bold)),
                         ),
                         const SizedBox(height: 2),
                         Text(
-                          kT4,
+                          kT8,
                           style: GoogleFonts.nunitoSans(
                             textStyle: const TextStyle(color: kColorWhite),
                           ),
@@ -64,39 +64,28 @@ class WelcomeView extends StatelessWidget {
                     ),
                   ),
                   const SizedBox(height: 30),
-                  TextButton(
-                      onPressed: () {},
-                      child: Container(
-                        height: 50,
-                        width: Get.width * 0.7,
-                        decoration: BoxDecoration(borderRadius: BorderRadius.circular(25), color: kFirstColor),
-                        child: Center(
-                          child: Text(
-                            kT5,
-                            style: GoogleFonts.roboto(
-                                textStyle:
-                                    const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
-                          ),
+                  ValueBuilder<int?>(
+                    initialValue: 0,
+                    builder: (value, updateFn) => Row(
+                      children: [
+                        OptionWidget(
+                          state: kT9,
+                          detail: kT10,
+                          enable: value == 0 ? true : false,
+                          onTap: () => updateFn(0),
                         ),
-                      )),
-                  TextButton(
-                      onPressed: () {},
-                      child: Container(
-                        height: 50,
-                        width: Get.width * 0.7,
-                        decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(25),
-                            border: Border.all(width: 2, color: kColorWhite),
-                            color: Colors.transparent),
-                        child: Center(
-                          child: Text(
-                            kT6,
-                            style: GoogleFonts.roboto(
-                                textStyle:
-                                    const TextStyle(color: kColorWhite, fontSize: 20, fontWeight: FontWeight.bold)),
-                          ),
+                        const SizedBox(width: 20),
+                        OptionWidget(
+                          state: kT11,
+                          detail: kT10,
+                          enable: value == 1 ? true : false,
+                          onTap: () => updateFn(1),
                         ),
-                      )),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 30),
+                  const BuildFooter(),
                 ],
               ),
             ),

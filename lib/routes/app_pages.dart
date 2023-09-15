@@ -1,31 +1,33 @@
+import 'package:flutter_ui_getx_fitness_app/pages/welcome_view.dart';
 import 'package:get/get.dart';
 
-import '../pages/started/about_view.dart';
-import '../pages/started/welcome_view.dart';
+import '../pages/forget_password_view.dart';
+import '../pages/login_view.dart';
+import '../pages/about_view.dart';
 
 class AppPages {
   static const initialRoute = '/';
   static const home = '/home';
-  static const about = '/home';
-  static const settings = '/settings';
+  static const about = '/about_you';
+  static const login = '/login';
+  static const forgetPassword = '/forget_password';
 
   static final List<GetPage> routes = [
     GetPage(
       name: initialRoute,
+      page: () => const WelcomeView(),
+    ),
+    GetPage(
+      name: about,
       page: () => const AboutView(),
     ),
-    // GetPage(
-    //   name: about,
-    //   page: () => const AboutView(),
-    // ),
-    // GetPage(
-    //   name: home,
-    //   page: () => HomeScreen(),
-    // ),
-    // GetPage(
-    //   name: settings,
-    //   page: () => SettingsScreen(),
-    // ),
+    GetPage(
+      name: login,
+      page: () => const LoginView(),
+    ), GetPage(
+      name: forgetPassword,
+      page: () => const ForgetPasswordView(),
+    ),
   ];
 
   // static final unknownRoute = GetPage(
